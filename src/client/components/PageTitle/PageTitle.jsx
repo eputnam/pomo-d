@@ -1,6 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { Heading, Text } from '@puppet/react-components';
+import { Heading } from '@chakra-ui/core';
 import './PageTitle.scss';
 
 const propTypes = {
@@ -14,8 +14,8 @@ const defaultProps = {
 
 const PageTitle = ({ title, subtitle }) => (
   <div className="page-title">
-    <Heading as="h3">{title}</Heading>
-    {subtitle && <Text color="medium">{subtitle}</Text>}
+    <Heading>{title}</Heading>
+
   </div>
 );
 
