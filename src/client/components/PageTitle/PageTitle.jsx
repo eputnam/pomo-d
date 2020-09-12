@@ -1,6 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { Heading } from '@chakra-ui/core';
+import {Heading, Stack} from '@chakra-ui/core';
 import './PageTitle.scss';
 
 const propTypes = {
@@ -14,8 +14,10 @@ const defaultProps = {
 
 const PageTitle = ({ title, subtitle }) => (
   <div className="page-title">
-    <Heading>{title}</Heading>
-
+      <Stack spacing={1}>
+          <Heading as="h1" size="xl">{title}</Heading>
+          <Heading as="h3" size="l" className="subtitle">{subtitle}</Heading>
+      </Stack>
   </div>
 );
 

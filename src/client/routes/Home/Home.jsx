@@ -4,7 +4,7 @@ import PageTitle from "../../components/PageTitle";
 
 const Home = () => (
   <div className="route-home">
-    <PageTitle title={"It's pomo time"}/>
+    <PageTitle title={"pomo-dee"} subtitle={"it's pomo time"}/>
   </div>
 );
 
