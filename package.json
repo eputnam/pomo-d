@@ -1,7 +1,7 @@
 {
-  "name": "puppet-starter-project",
+  "name": "pomo-dee",
   "version": "0.1.0",
-  "author": "Puppet, Inc.",
+  "author": "eputnam",
   "license": "UNLICENSED",
   "scripts": {
     "build": "./scripts/build",
