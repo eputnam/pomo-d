@@ -1,4 +1,3 @@
-@import '~@puppet/sass-variables/index';
 
 .app {
   height: 100%;
@@ -10,5 +9,4 @@
   flex: 1;
   overflow: auto;
   padding: 40px;
-  background-color: $puppet-white;
 }
