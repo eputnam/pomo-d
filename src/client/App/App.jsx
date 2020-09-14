@@ -8,24 +8,28 @@ import routes from '../routes/index';
 
 import './App.scss';
 import {CSSReset, ThemeProvider} from "@chakra-ui/core";
+import { Provider } from "react-redux";
+import store from "../state/ReduxStore";
 
 const App = () => (
   <Suspense fallback={<div />}>
       <ThemeProvider>
         <CSSReset/>
         <I18nextProvider i18n={i18n}>
-          <Router>
-            <div className="app">
-              <div className="app-main-content">
-                <Switch>
-                  {routes.map(({ path, view }) => (
-                    <Route exact key={path} path={path} component={view} />
-                  ))}
-                  <Route component={NotFound} />
-                </Switch>
+          <Provider store={store}>
+            <Router>
+              <div className="app">
+                <div className="app-main-content">
+                  <Switch>
+                    {routes.map(({ path, view }) => (
+                        <Route exact key={path} path={path} component={view} />
+                    ))}
+                    <Route component={NotFound} />
+                  </Switch>
+                </div>
               </div>
-            </div>
-          </Router>
+            </Router>
+          </Provider>
         </I18nextProvider>
       </ThemeProvider>
   </Suspense>
