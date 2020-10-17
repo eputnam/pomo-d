@@ -1,6 +1,5 @@
-
 const home = () => {
-    return null;
-}
+  return null;
+};
 
 export default home;
