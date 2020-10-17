@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup } from '@chakra-ui/core';
+import Countdown from "../Countdown/Countdown";
 
 const Timer = () => {
   const [time, setTime] = useState(0);
@@ -75,7 +76,7 @@ const Timer = () => {
           </Button>
         </ButtonGroup>
       </div>
-      <div className="page-title">{time}</div>
+      <Countdown seconds={time}/>
     </>
   );
 };
