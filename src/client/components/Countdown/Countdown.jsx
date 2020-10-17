@@ -1,4 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  seconds: PropTypes.number,
+};
+
+const defaultProps = {
+  seconds: 0,
+};
 
 const Countdown = ({ seconds }) => {
   const getMinutes = () => {
@@ -21,5 +30,8 @@ const Countdown = ({ seconds }) => {
     </div>
   );
 };
+
+Countdown.defaultProps = defaultProps;
+Countdown.propTypes = propTypes;
 
 export default Countdown;
