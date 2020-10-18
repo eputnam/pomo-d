@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button } from '@chakra-ui/core';
-import PropTypes from 'prop-types';
 import { getMinutes, getSeconds } from '../../util/Time/Time';
+import { TIME_SET } from '../../state/CommonPropTypes';
 
 const propTypes = {
-  startTime: PropTypes.number.isRequired,
+  timeSet: TIME_SET.isRequired,
 };
 
-const TimeSetButton = ({ startTime }) => {
+const TimeSetButton = ({ timeSet }) => {
   return (
     <Button style={{ width: '100%' }}>
-      {getMinutes(startTime)}:{getSeconds(startTime)}
+      {getMinutes(timeSet.startTime)}:{getSeconds(timeSet.startTime)}
     </Button>
   );
 };

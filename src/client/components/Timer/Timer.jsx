@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup } from '@chakra-ui/core';
-import PropTypes from 'prop-types';
 import Countdown from '../Countdown/Countdown';
+import { TIME_SET } from '../../state/CommonPropTypes';
 
 /**
  *
@@ -20,9 +20,7 @@ const defaultProps = {
 };
 
 const propTypes = {
-  timeSet: PropTypes.exact({
-    startTime: PropTypes.number,
-  }),
+  timeSet: TIME_SET,
 };
 
 const Timer = ({ timeSet }) => {
@@ -78,15 +76,16 @@ const Timer = ({ timeSet }) => {
   return (
     <>
       <div style={{ margin: '10px 0' }}>
-        <ButtonGroup>
+        <ButtonGroup style={{ width: '100%' }}>
           <Button
-            style={{ width: '250px' }}
+            style={{ width: 'calc(100%/3 * 2 - 4px)' }}
             variantColor={startButtonColor}
             onClick={onClick}
           >
             {startButtonText}
           </Button>
           <Button
+            style={{ width: 'calc(100%/3 - 4px)' }}
             variantColor={stopButtonColor}
             isDisabled={isStopped}
             onClick={clearTimer}
