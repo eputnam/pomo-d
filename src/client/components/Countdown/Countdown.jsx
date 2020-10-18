@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getMinutes, getSeconds } from '../../util/Time/Time';
 
 const propTypes = {
   seconds: PropTypes.number,
@@ -10,23 +11,9 @@ const defaultProps = {
 };
 
 const Countdown = ({ seconds }) => {
-  const getMinutes = () => {
-    if (seconds >= 60) {
-      return Math.floor(seconds / 60);
-    }
-
-    return 0;
-  };
-
-  const getSeconds = () => {
-    const secs = seconds - Math.round(getMinutes() * 60);
-    if (secs < 10) return `0${secs}`;
-    return secs;
-  };
-
   return (
     <div>
-      {getMinutes()}:{getSeconds()}
+      {getMinutes(seconds)}:{getSeconds(seconds)}
     </div>
   );
 };

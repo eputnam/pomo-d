@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup } from '@chakra-ui/core';
+import PropTypes from 'prop-types';
 import Countdown from '../Countdown/Countdown';
 
-const Timer = () => {
-  const twentyFiveMinutesOfSeconds = 60 * 25;
+/**
+ *
+ * TimeSet = {
+ *   id: numeric id
+ *   time: starting time
+ * }
+ *
+ *  load a TimeSet into the timer, it sets the starting time.
+ *
+ *  Future: time sets could load in a color theme
+ */
 
-  const [time, setTime] = useState(twentyFiveMinutesOfSeconds);
+const defaultProps = {
+  timeSet: { startTime: 25 * 60 },
+};
+
+const propTypes = {
+  timeSet: PropTypes.exact({
+    startTime: PropTypes.number,
+  }),
+};
+
+const Timer = ({ timeSet }) => {
+  const [time, setTime] = useState(timeSet.startTime);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [isStopped, setIsStopped] = useState(true);
@@ -33,7 +54,7 @@ const Timer = () => {
     clearInterval(timerId);
     setIsRunning(false);
     setIsStopped(true);
-    setTime(0);
+    setTime(timeSet.startTime);
   };
 
   let startButtonText = 'GO';
@@ -78,5 +99,8 @@ const Timer = () => {
     </>
   );
 };
+
+Timer.defaultProps = defaultProps;
+Timer.propTypes = propTypes;
 
 export default Timer;
