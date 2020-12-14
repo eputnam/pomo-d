@@ -3,12 +3,12 @@ import { hot } from 'react-hot-loader'; // this should only be done in the top l
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'i18n';
+import { Provider } from 'react-redux';
+import { CSSReset, ThemeProvider } from '@chakra-ui/core';
+
 import NotFound from 'routes/NotFound';
 import routes from '../routes/index';
-
 import './App.scss';
-import { CSSReset, ThemeProvider } from '@chakra-ui/core';
-import { Provider } from 'react-redux';
 import store from '../state/ReduxStore';
 
 const App = () => (

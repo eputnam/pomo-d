@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, ButtonGroup } from '@chakra-ui/core';
 import Countdown from '../Countdown/Countdown';
 import { TIME_SET } from '../../state/CommonPropTypes';
@@ -15,12 +15,8 @@ import { TIME_SET } from '../../state/CommonPropTypes';
  *  Future: time sets could load in a color theme
  */
 
-const defaultProps = {
-  timeSet: { startTime: 25 * 60 },
-};
-
 const propTypes = {
-  timeSet: TIME_SET,
+  timeSet: TIME_SET.isRequired,
 };
 
 const Timer = ({ timeSet }) => {
@@ -54,6 +50,10 @@ const Timer = ({ timeSet }) => {
     setIsStopped(true);
     setTime(timeSet.startTime);
   };
+
+  useEffect(() => {
+    clearTimer();
+  }, [timeSet]);
 
   let startButtonText = 'GO';
   let startButtonColor = 'green';
@@ -99,7 +99,6 @@ const Timer = ({ timeSet }) => {
   );
 };
 
-Timer.defaultProps = defaultProps;
 Timer.propTypes = propTypes;
 
 export default Timer;

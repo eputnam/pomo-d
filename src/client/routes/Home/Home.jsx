@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Home.scss';
 import PageTitle from '../../components/PageTitle';
 import Timer from '../../components/Timer/Timer';
@@ -17,11 +17,16 @@ const Home = () => {
     startTime: 5 * 60,
   };
 
+  const [currentTimeSet, setCurrentTimeSet] = useState(defaultTimeSet);
+
   return (
     <div className="route-home">
       <PageTitle title="pomo-dee" subtitle={"it's pomo time"} />
-      <TimeSetList timeSets={[defaultTimeSet, thirty, five]} />
-      <Timer timeSet={defaultTimeSet} />
+      <TimeSetList
+        timeSets={[defaultTimeSet, thirty, five]}
+        onClickTimeSetButton={setCurrentTimeSet}
+      />
+      <Timer timeSet={currentTimeSet} />
     </div>
   );
 };

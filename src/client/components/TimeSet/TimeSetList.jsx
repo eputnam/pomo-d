@@ -5,14 +5,15 @@ import { TIME_SET } from '../../state/CommonPropTypes';
 
 const propTypes = {
   timeSets: PropTypes.arrayOf(TIME_SET).isRequired,
+  onClickTimeSetButton: PropTypes.func.isRequired,
 };
 
-const TimeSetList = ({ timeSets }) => {
+const TimeSetList = ({ timeSets, onClickTimeSetButton }) => {
   return (
     <ul style={{ listStyle: 'none', margin: '10px 0' }}>
       {timeSets.map(timeSet => (
         <li style={{ margin: '10px 0' }} key={timeSet.startTime}>
-          <TimeSetButton timeSet={timeSet} />
+          <TimeSetButton timeSet={timeSet} onClick={onClickTimeSetButton} />
         </li>
       ))}
     </ul>
